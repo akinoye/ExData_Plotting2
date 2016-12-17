@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(plyr)\n\n\nNEI <- readRDS(\"summarySCC_PM25.rds\")\nSCC <- readRDS(\"Source_Classification_Code.rds\")\npm25_total <- ddply(NEI, .(year), summarize,Emissions = sum(Emissions))\nprint(pm25_total)\nEmissions <- pm25_total$Emissions\nyear<- pm25_total$year\npct <- round(Emissions/sum(Emissions)*100)\nyear <- paste(year, pct)\nyear <- paste(year, \"%\", sep = \"\")\npng(\"plot1.png\", width=480, height=480)\npie(Emissions,labels = year, col = rainbow(length(year)), \n    main = \"Pie Chart of Total Pollutants by year\")\ndev.off()",
+    "created" : 1481832511108.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3957085696",
+    "id" : "E262206B",
+    "lastKnownWriteTime" : 1481889718,
+    "last_content_update" : 1481889718371,
+    "path" : "C:/Users/Rock/Desktop/DesktopFolders/DataScience/04_Exploratory_Data_Analysis/Project2/Plot1.R",
+    "project_path" : "Plot1.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
